@@ -1,6 +1,7 @@
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  return fetch("https://anapioficeandfire.com/api/books") //fetch books from api
+    .then((resp) => resp.json()) //then take one callback func, gets built-in json method, converts resp into plain text
+    .then((json) => renderBooks(json)) //second then method takes parsed JSON object into the next function parameter, which alt we could call 'data'
 }
 
 function renderBooks(books) {
@@ -15,3 +16,4 @@ function renderBooks(books) {
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks();
 });
+
